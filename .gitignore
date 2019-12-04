@@ -33,3 +33,4 @@
 
 # CLion directory
 ./cmake-build-debug
+./.idea
