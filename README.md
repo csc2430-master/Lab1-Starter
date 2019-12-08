@@ -26,14 +26,14 @@ In this lab, you are given all the files you will need for your CLion project.
     *	The header comment for the function
     *	The function implementation.  
 
-The starter project does compile, and you can produce an executable, but the executable will assert after you enter an arithmetic expression to remind you that the function GetEvalSteps is not implement.  You will want to remove the assert statement when you implement the function.
+The starter project does compile, and you can produce an executable, but the executable will assert after you enter an arithmetic expression to remind you that the function GetEvalSteps is not implemented.  You will want to remove the assert statement when you implement the function.
 
 
 ## What the function *GetEvalSteps* should do
 
-When passed an arithmetic expression containing numbers and the binary operators *+, -, \*, /, and %*, it will produce a string that displays a step-by-step simplification of the expression, until you are left with the numerical result.   
+When passed an arithmetic expression containing numbers and the binary operators *+, -, \*, /, and %*, it will return a string that displays a step-by-step simplification of the expression, until you are left with the numerical result.   
 
-For instance, when the string *“2+3\*4-5”* in the run captured in the previous screenshot was passed to *GetEvalSteps*, the function returned <pre>"2+3*4-5 = 2+12-5\n        = 14-5\n        = 9"</pre>  Note how just the right amount of blank characters are added to make it display properly.
+For instance, when the string *“2+3\*4-5”* in the run captured in the previous screenshot was passed to *GetEvalSteps*, the function returned <pre>"2+3*4-5 = 2+12-5\n        = 14-5\n        = 9"</pre>  Note how extra blank characters are inserted into the string so that when it is output, the equal signs of each simplification step line up.
 
 #### Important things to note about the format of the string returned by your function:
 
@@ -42,19 +42,19 @@ For instance, when the string *“2+3\*4-5”* in the run captured in the previo
 *	The first line should start with the expression entered.  
     *	If no simplification can be done, your function should return the original expression.
     *	If just one simplification can be done, your function returns a string which is the concatenation of the original expression, a blank, an =, another blank, and then the simplified expression.
-    *	If two simplifications can be done, your function will return a string that starts out like the preceding one, but following that will be appended a \n, then a series of blanks followed by an = (make sure it’s the exact number of blanks so that the = sign lines up with the = sign on the first line)., and then the final simplification to the expression.
+    *	If two simplifications can be done, then the string will start with the orignal expression, a blank, an =, another blank, and then the simplified expression.  Next comes \n, a series of blank characters, an = sign, and then the final simplification.
     *	If more than two simplifications can be done, continue as above appending more lines.
-    *	In all these cases, do NOT append ‘\n’ to the end of your evaluation steps.
+    *	Note that the string returned will NOT end in \n.
 
-*	Exactly one addition, subtraction, multiplication, division or mod operation is done on each step.   Follow the standard precedence and left -to-right evaluation rules.  In other words, *, /, and % are evaluated before + and -.  If there are multiple *, /, and % operations, go left to right.  When all the *, /, and % operators have been simplified out, then perform the + and – operations left to right.  All operations are to be integer operations.
+*	Exactly one addition, subtraction, multiplication, division or mod operation is handled on each step.   Follow the standard precedence and left -to-right evaluation rules.  In other words, *, /, and % are evaluated before + and -.  If there are multiple *, /, and % operations, go left to right.  When all the *, /, and % operators have been simplified out, then perform the + and – operations left to right.  All operations are to be integer operations.
 
-*	All numbers appearing in the expressions are non-negative integers, even though the result of the computation might be a negative integer.  You can assume that the numbers are small enough that they fit into the C++ integer type, and you can ignore the possibility of overflow when performing operations.
+*	All numbers appearing in the expression are non-negative integers, even though the result of the computation might be a negative integer.  You can assume that the numbers are small enough that they fit into the C++ integer type, and you can ignore the possibility of overflow when performing operations.
 
 *	You are NOT supposed to handle a unary minus sign (or unary plus sign for that matter).  Just ignore it – for instance:
 
 ![Ignore Unary Operators](/images/EvaluationStepsScreenShot-2.png)
 
-*	Characters appearing in the string that are not digits, +, -, \*, /, and % are to be ignored.  Just perform the operations that can be performed, and leave any other character where it is:
+*	Characters appearing in the string that are neither digits nor one of the operators +, -, \*, /, and % are to be ignored.  Just perform the operations that can be performed, and leave any other character where it is:
 
 ![Ignore Other Characters](/images/EvaluationStepsScreenShot-3.png)
 
@@ -72,15 +72,15 @@ If you do not follow these expectations, you may have points deducted from your 
 
     *GetEvalSteps* could be implemented with one single humongous, complicated single function, but you should NOT pursue that approach.  As you look at the problem, you will see that you will need to repeat some very similar logic two times because the five different operators cannot be handled at the same time.  You need to deal with *, /, % first, and then deal with +, -.  You SHOULD design a sub-function that you can call once for \*, /, %, and then for +,-.   If you do this, the actual code for *GetEvalSteps* can be relatively short, and very easy to understand.
 
-    This sub-function will likely involve a loop.  Inside the loop will be a complicated set of logic.  If you were to leave it as one function, it would still be complicated and difficult for another person to read.   You should move this inner logic into a second sun-function, so you have a clean loop that is easy to read.  
+    This sub-function will likely involve a loop.  Inside the loop will be a complicated set of logic.  If you were to leave it as one function, it would still be complicated and difficult for another person to read.   You should move this inner logic into a second sub-function, so you have a clean loop that is easy to read. 
 
-    This kind of refinement is an important skill that needs to be developed.  “Clean”, understandable logic is essential so other programmers can understand your code.  
+    This kind of refinement is an important skill that needs to be developed.  “Clean”, understandable logic is essential so other programmers can understand your code, and verify it is correct.
 
 2.	_Use of string methods_
 
-    One of the goals of this assignment is to learn how to use the methods of the string class.  Therefore, you should use them!  If you find yourself writing a loop to concatenate a lot of characters to the end of a string, to search for the position where a character occurs, or replacing text in a string with some different text,  you are doing something wrong.
+    One of the goals of this assignment is to learn how to use the methods of the string class.  Therefore, you should use them!  If you find yourself writing a loop to concatenate a lot of characters to the end of a string, to search for the position where a character occurs, or to replace some text in a string with some different text,  you are doing something wrong.
 
-    It is expected that you will make one or more uses of each of the following features of the string class:
+    It is expected that you will make one or more uses of each of the following string class: methods.
 
   * string fill constructor
   * find_first_of method
@@ -126,26 +126,28 @@ If you do not follow these expectations, you may have points deducted from your 
     ```
     // Produce a string of evaluation steps for simplifying an expression
     // For example:
-    //    if “2+3*4-5”  is passed to this function, the string “2+3*4-5 = 2+12-5\n        = 14-5\n        = 9”
+    //      if “2+3*4-5”  is passed to this function, the string “2+3*4-5 = 2+12-5\n        = 14-5\n        = 9”
     //      would be returned
     // Parameters:
     //      expression - an arithmetic expression
     // Returns:
     //      a string consisting of the evaluation steps needed to simplify the expression
-    // Format Error: there should be no errors
+    // Possible Error Conditions: 
+    //      If evaluating the expression causes division by zero, this function crash.
+    //      If evaluating the expression causes an oveflow, the results may not be reliable.
     ```
 
     You should include additional comments in your code to describe what you are doing.   If it is hard to understand what a variable is for, add a comment after it.   It possible, though, to put in too many comments, so be judicious and make sure you have time left to do well in your other classes when it comes to commenting.
 
 ## Submitting your code
-Your solution should be contained within a single C++ file, and it must be named “evalSteps.cpp”.
+Your solution should be contained within a single C++ file, and that file must be named “evalSteps.cpp”.
 
 Make sure you test your code thoroughly.  We will run a series of tests on your function, and the strings you return must match character by character what is specified above.
 
-Your code needs to be submitted through GitHub Classroom, before the deadline you will need to push your last version of your program. As a good programming practice remember to commit frequently and to push every time you have a functioning version of your code.0
+Your code needs to be submitted through GitHub Classroom.  You will need to push your last version of your program before the lab deadline. As a good programming practice remember to commit frequently and to push every time you have a functioning version of your code.
 
 ## Grading
-Correctness is essential.  Make sure your solution builds as described above and correctly handles the test cases given in this lab.  We will test on other input values as well. Your code must compile and should not have runtime errors (crash).
+Correctness is essential.  Make sure your solution builds as described above and correctly handles the test cases displayed in the screen shot.  We will test on other input values as well. Your code must compile and should not have runtime errors (crash).
 
 Even if your solution operates correctly, points will be taken off for:
 - Not following the design described above
@@ -154,7 +156,7 @@ Even if your solution operates correctly, points will be taken off for:
 - Programming error not caught by other testing
 - Not following good programming practices
 
-Academic Integrity
+## Academic Integrity
 This programming assignment is to be done on an individual basis. At the same time, it is understood that learning from your peers is valid and you are encouraged to talk among yourselves about programming in general and current assignments in particular.  Keep in mind, however, that each individual student must do the work in order to learn.  Hence, the following guidelines are established:
 - Feel free to discuss any and all programming assignments but do not allow other students to look at or copy your code. Do not give any student an electronic or printed copy of any program you write for this class.
 - Gaining the ability to properly analyze common programming errors is an important experience. Do not deprive a fellow student of his/her opportunity to practice problem solving: control the urge to show them what to do by writing the code for them.
