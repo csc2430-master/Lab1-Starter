@@ -70,11 +70,13 @@ If you do not follow these expectations, you may have points deducted from your 
 
 1.	_Good design_
 
-    *GetEvalSteps* could be implemented with one single humongous, complicated single function, but you should NOT pursue that approach.  As you look at the problem, you will see that you will need to repeat some very similar logic two times because the five different operators cannot be handled at the same time.  You need to deal with *, /, % first, and then deal with +, -.  You SHOULD design a sub-function that you can call once for \*, /, %, and then for +,-.   If you do this, the actual code for *GetEvalSteps* can be relatively short, and very easy to understand.
+    *GetEvalSteps* could be implemented with one single humongous, complicated single function, but you should NOT pursue that approach.  As you look at the problem, you will see that you will need to repeat some very similar logic two times because the five different operators cannot be handled at the same time.  You need to deal with *, /, % first, and then deal with +, -.  You SHOULD design a subfunction that you can call once for \*, /, %, and then for +,-.   If you do this, the actual code for *GetEvalSteps* can be relatively short, and very easy to understand.
 
-    This sub-function will likely involve a loop.  Inside the loop will be a complicated set of logic.  If you were to leave it as one function, it would still be complicated and difficult for another person to read.   You should move this inner logic into a second sub-function, so you have a clean loop that is easy to read. 
+    This subfunction will likely involve a loop.  Inside the loop will be a complicated set of logic.  If you were to leave it as one function, it would still be complicated and difficult for another person to read.   You should move this inner logic into a second sub-function, so you have a clean loop that is easy to read. 
 
     This kind of refinement is an important skill that needs to be developed.  “Clean”, understandable logic is essential so other programmers can understand your code, and verify it is correct.
+    
+    Since you will be creating a couple subfunctions, make sure any *string* parameters are passed by reference.  If a *string* paramter is not to be modified by the function, be sure to declare it *const*.
 
 2.	_Use of string methods_
 
