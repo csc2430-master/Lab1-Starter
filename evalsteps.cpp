@@ -18,6 +18,8 @@
 //
 // Returns:
 //      **<<describe the return value>
+// Possible Error Conditions:
+//      **<<describe possible error situations>>
 string GetEvalSteps(const string& expression) {
     assert(false);
 }
