@@ -15,11 +15,10 @@
 // **<Describe what this function does
 // Parameters:
 //      expression - **<describe this parameter>
-//
 // Returns:
 //      **<<describe the return value>
-// Possible Error Conditions:
-//      **<<describe possible error situations>>
+// Possible Errors:
+//      **<<list possible errors>>
 string GetEvalSteps(const string& expression) {
     assert(false);
 }
