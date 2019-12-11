@@ -14,7 +14,7 @@ The main program runs in a loop.  On each iteration of the loop, the user enters
 ## Files you are given
 In this lab, you are given all the files you will need for your CLion project.  
 
-* **CMakeLists.txt** - This contains the information necessary to build the file.  This file should not be modified.
+* **CMakeLists.txt** - This contains the information necessary to build the project.  This file should not be modified.
 
 *	**main.cpp** – This file has been completed for you.  It has the source for a simple main program that consists of a loop.  On each iteration of the loop, it prompts the user to enter an arithmetic expression.  If a blank line was entered, the loop terminates, and the program ends.  Otherwise, the string that was entered is passed to the function *GetEvalSteps*.  The main program then prints the return values from *GetEvalSteps*, and the loop repeats.  This file should not be modified.
 
