@@ -78,11 +78,11 @@ If you do not follow these expectations, you may have points deducted from your 
 
     Since you will be creating a couple sub-functions, make sure any `string` parameters are passed by reference.  If a `string` parameter is not to be modified by the function, be sure to declare it `const`.
 
-2.	_Use of `string` methods_ See [C++ Reference](http://www.cplusplus.com/reference/string/string)
+2.	_Use of `string` methods_ 
 
     One of the goals of this assignment is to learn how to use the methods of the `string` class.  Therefore, you should *use* them!  If you find yourself writing a loop to concatenate a lot of characters to the end of a string, to search for the position where a character occurs, or to replace some text in a string with some different text, you are doing something wrong.
 
-    It is expected that you will make one or more uses of each of the following `string` class methods.
+    It is expected that you will make one or more uses of each of the following `string` class methods. See [C++ Reference](http://www.cplusplus.com/reference/string/string) for more information on the `string` class methods.
 
   * `string` fill constructor
   * `find_first_of` method
