@@ -1,5 +1,8 @@
 # LAB 1 - Evaluation Steps
 
+## Future Version
+Try to be more explicit about how to use the string methods and why we want them to avoid using at or []
+
 ## Goal
 Practice the methods offered by the C++ standard library string class by writing a C++ program that reads in an arithmetic expression and prints out a step by step evaluation of the expression.
 
